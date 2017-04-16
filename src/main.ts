@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { App } from './app/app';
 import { routes } from './app/routes'
 import { providers } from './app/index';
-import { Main, Notes, About} from './app/containers';
+import { Main, Notes, About, Auth} from './app/containers';
 import {
     AppBar,
     NoteCard,
@@ -23,7 +23,8 @@ import {
         Notes,
         NoteCreator,
         ColorPicker,
-        About
+        About,
+        Auth
     ],
     providers,
     imports: [

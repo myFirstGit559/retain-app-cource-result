@@ -33,10 +33,10 @@ export class Store {
     changes = this.store.asObservable()
         .distinctUntilChanged()
 
-    setState(state: State) {
+    setState(state: any) {
         this.store.next(state);
     }
-    getState():State {
+    getState():any {
         return this.store.value;
     }
     purge() {

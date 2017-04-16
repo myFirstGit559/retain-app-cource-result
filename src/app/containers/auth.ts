@@ -53,6 +53,7 @@ import { Router } from '@angular/router';
         class="col-xs-8"
         type="email"
         name="email"
+        id="email"
         required
         [(ngModel)]="user.email"
         placeholder="email"
@@ -67,6 +68,7 @@ import { Router } from '@angular/router';
         class="col-xs-8"
         type="password"
         name="password"
+        id="password"
         required
         [(ngModel)]="user.password"
         placeholder="password"
@@ -79,8 +81,8 @@ import { Router } from '@angular/router';
       </div>
       <div class="actions col-xs-12">
         <div class="row center-xs">
-          <button type="submit" class="btn-light" [disabled]="!auth.form.valid">
-            what form
+          <button type="submit" class="btn-light" [disabled]="!authForm.form.valid">
+            send
           </button>
           <a class="btn-light link" (click)="changeMode()">
             {{linkText}}
@@ -119,6 +121,9 @@ export class Auth {
 
     authenticate() {
         this.auth.authenticate(this.mode, this.user)
-            .subscribe(() => this.router.navigate(['']))
+            .subscribe((data) => {
+                console.log(data);
+                this.router.navigate([''])
+            })
     }
 }

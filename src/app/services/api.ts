@@ -25,12 +25,14 @@ export class ApiService {
         }
     }
     get(path: string): Observable<any> {
+        console.log(this.headers)
         return this.http.get(`${this.api_url}${path}`, this.headers)
             .map(this.checkForError)
             .catch(err => Observable.throw(err))
             .map(this.getJson)
     }
     post(path: string, body):Observable<any> {
+        console.log(this.headers)
         return this.http.post(
             `${this.api_url}${path}`,
             JSON.stringify(body),
@@ -41,6 +43,7 @@ export class ApiService {
             .map(this.getJson)
     }
     delete(path: string): Observable<any> {
+        console.log(this.headers)
         return this.http.get(`${this.api_url}${path}`, this.headers)
             .map(this.checkForError)
             .catch(err => Observable.throw(err))
