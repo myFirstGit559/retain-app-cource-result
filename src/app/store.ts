@@ -12,15 +12,20 @@ export interface Note {
     userId?: string
 }
 
+export interface User {
+    id: string
+}
 export interface State {
-    notes: Note[]
+    notes: Note[],
+    user: User
 }
 
-const defaultState: State = {
-    notes: []
+const defaultState = {
+    notes: [],
+    user: {}
 }
 
-const _store = new BehaviorSubject<State>(defaultState);
+const _store = new BehaviorSubject(defaultState);
 
 @Injectable()
 export class Store {
